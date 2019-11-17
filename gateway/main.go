@@ -33,6 +33,8 @@ func run() error {
 		return err
 	}
 
+	fmt.Println("trace2")
+
 	return http.ListenAndServe(":8080", mux)
 }
 
@@ -42,7 +44,11 @@ func main() {
 
 	defer glog.Flush()
 
-	if err := run(); err != nil {
+	err := run()
+
+	fmt.Println("trace3")
+
+	if err != nil {
 		glog.Fatal(err)
 	}
 }

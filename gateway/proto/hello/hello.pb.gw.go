@@ -10,6 +10,7 @@ package greeter
 
 import (
 	"context"
+	"fmt"
 	"io"
 	"net/http"
 
@@ -96,6 +97,7 @@ func RegisterSayHandlerServer(ctx context.Context, mux *runtime.ServeMux, server
 // RegisterSayHandlerFromEndpoint is same as RegisterSayHandler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
 func RegisterSayHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
+	fmt.Println("parameters::: ", ctx, mux, endpoint, opts)
 	conn, err := grpc.Dial(endpoint, opts...)
 	if err != nil {
 		return err
