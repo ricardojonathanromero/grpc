@@ -24,6 +24,7 @@ func (s *Say) Hello(ctx context.Context, req *hello.Request, rsp *hello.Response
 func main() {
 	service := grpc.NewService(
 		micro.Name("go.micro.srv.greeter"),
+		micro.Address(":9090"),
 		micro.RegisterTTL(time.Second*30),
 		micro.RegisterInterval(time.Second*10),
 	)
